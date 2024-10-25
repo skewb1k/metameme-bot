@@ -1,13 +1,12 @@
-from requests import get
+from requests import get, models
 
 
-def fetch_image_by_query(query: str):
+def get_from_bing(query: str) -> models.Response:
     binq_url = "https://th.bing.com/th?q="
     print("query", query)
 
     res = get(binq_url + query)
     if res:
-        print(type(res))
         return res.content
 
     print("fetching error")
