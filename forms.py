@@ -1,4 +1,3 @@
-from os import wait
 from aiogram.fsm.state import State, StatesGroup
 
 
