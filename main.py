@@ -27,6 +27,7 @@ from phrase_generator import PhraseGenerator
 
 TOKEN = getenv("BOT_TOKEN")
 CHANNEL_ID = getenv("CHANNEL_ID")
+METAMEME_INTERVAL = int(getenv("METAMEME_INTERVAL"))
 
 path_to_all_words = "data/all_words.txt"
 BOTH_SIDES_CHANCE = 0.2
@@ -290,7 +291,7 @@ async def send_metameme_to_channel() -> None:
 async def spam_metamemes_in_channel(stop_event: asyncio.Event):
     while not stop_event.is_set():
         await send_metameme_to_channel()
-        await asyncio.sleep(2)
+        await asyncio.sleep(METAMEME_INTERVAL)
 
 
 async def main(stop_event: asyncio.Event) -> None:
